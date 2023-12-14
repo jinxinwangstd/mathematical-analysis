@@ -1,0 +1,8 @@
+# Ignore the generated files from tex files.
+*.xdv
+*.synctex.gz
+*.log
+*.fls
+*.fdb_latexmk
+*.aux
+*.out
