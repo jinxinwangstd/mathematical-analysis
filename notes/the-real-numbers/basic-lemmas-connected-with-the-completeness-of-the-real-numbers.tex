@@ -1,0 +1,124 @@
+\documentclass[onecolumn]{ctexart}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{indentfirst}
+\usepackage{bm}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\geometry{a4paper,scale=0.8}
+
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{remark}{Remark}
+\newtheorem{example}{Example}
+
+\title{Notes of "Basic Lemmas Connected with the Completeness of the Real Numbers"}
+\author{Jinxin Wang}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{Overview}
+\begin{itemize}
+  \item The Nested Interval Lemma
+  \begin{itemize}
+    \item Definition: A sequence of elements of a set
+    \item Definition: A sequence of nested intervals
+    \item Lemma: The Nested Interval Lemma
+  \end{itemize}
+  \item The Finite Covering Lemma
+  \begin{itemize}
+    \item Definition: A cover of a set
+    \item Lemma: The Finite Covering Lemma
+  \end{itemize}
+  \item The Limit Point Lemma
+  \begin{itemize}
+    \item Definition: A limit point of a set
+    \item Lemma: The Limit Point Lemma
+  \end{itemize}
+\end{itemize}
+
+\section{The Nested Interval Lemma (Cauchy-Cantor Principle)}
+
+\begin{definition}[A Sequence of Elements of a Set]
+  A function $f: \mathbb{N} \to X$ of a natural-number argument is called a 
+  sequence or, more fully, a sequence of elements of $X$.
+\end{definition}
+
+\begin{definition}[A Sequence of Nested Intervals]
+  Let $X_1, X_2, \ldots, X_n, \ldots$ be a sequence of sets. If $X_1 \supset X_2 
+  \supset \cdots \supset X_n \supset \cdots$, that is $X_n \supset X_{n+1}$ for 
+  all $n \in \mathbb{N}$, we say the sequence is nested.
+\end{definition}
+
+\begin{lemma}[The Nested Interval Lemma, or Cauchy-Cantor Principle]
+  For any nested sequence $I_1 \supset I_2 \supset \cdots \supset I_n \supset 
+  \cdots$ of closed intervals, there exists a point $c \in \mathbb{R}$ belonging 
+  to all of these intervals.
+
+  If in addition it is known that for any $\epsilon > 0$ there is an interval 
+  $I_k$ whose length $|I_k|$ is less than $\epsilon$, then $c$ is the unique 
+  point common to all the intervals.
+\end{lemma}
+\begin{proof}
+  (TODO)
+\end{proof}
+\begin{remark}
+  Notice the sequence of nested intervals are closed intervals. If they are open 
+  intervals (TODO)
+\end{remark}
+
+\section{The Finite Covering Lemma (Borel-Lebesgue Principle)}
+
+\begin{definition}[A Cover of a Set]
+  A system $S = \lbrace X \rbrace$ of sets $X$ is said to cover a set $Y$ if $Y 
+  \subset \bigcup_{X \in S} X$, that is, if every element $y \in Y$ belongs to 
+  at least one of the sets $X$ in the system $S$.
+\end{definition}
+
+\begin{lemma}[The Finite Covering Lemma, or Borel-Lebesgue Principle]
+  Every system of open intervals covering a closed interval containing a finite 
+  subsystem that covers the closed interval.
+\end{lemma}
+\begin{proof}
+  (TODO)
+\end{proof}
+
+\section{The Limit Point Lemma (Bolzano-Weierstrass Principle)}
+
+\begin{definition}[A Limit Point of a Set]
+  A point $p \in \mathbb{R}$ is a limit point of the set $X \subset \mathbb{R}$ 
+  if every neighborhood of the point contains an infinite subset of $X$.
+\end{definition}
+\begin{remark}
+  An equivalent condition is that every neighborhood of $p$ contains at least 
+  one point of $X$ different from $p$ itself.
+\end{remark}
+\begin{remark}
+  The concept of a limit point is 相对的. It is clear from the definition that we 
+  must specify the set of a limit point. A limit point of a set $X_1 \subset 
+  \mathbb{R}$ might not be a limit point in terms of another set $X_2 \subset 
+  \mathbb{R}$. For example, a finite point set $X \subset \mathbb{R}$ can never 
+  have a limit point since it does not have any infinite subset.
+\end{remark}
+
+\begin{lemma}[The Limit Point Principle, or Bolzano-Weierstrass Principle]
+  Every bounded infinite set of real numbers has at least one limit point.
+\end{lemma}
+\begin{proof}
+  (TODO)
+\end{proof}
+
+\end{document}
