@@ -1,0 +1,437 @@
+\documentclass[onecolumn]{ctexart}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{indentfirst}
+\usepackage{bm}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\geometry{a4paper,scale=0.8}
+
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{remark}{Remark}
+\newtheorem{example}{Example}
+
+\DeclareMathOperator{\sgn}{sgn}
+
+\title{Notes of "The Limit of A Function"}
+\author{Jinxin Wang}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{Definitions and Examples}
+
+\begin{definition}[The Limit of a Function (Basic Type)]
+  ($\epsilon$-$\delta$)
+
+  \begin{equation}
+    \forall \epsilon > 0, \exists \delta > 0, \forall x \in E (0 < |x - a| < \delta \Rightarrow |f(x) - A| < \epsilon)
+  \end{equation}
+\end{definition}
+
+\begin{remark}
+  Based on the definition, we can see that limits are a kind of local 
+  characteristic of a function. With that, when using the definition to prove 
+  the limit of a function at $x = x_0$, we can discuss it within a certain 
+  neighborhood $O(x_0, \delta_0)$.
+\end{remark}
+
+\begin{definition}[去心邻域]
+  A deleted neighborhood of a point is a neighborhood of the point from which 
+  the point itself has been removed.
+\end{definition}
+
+\begin{definition}[函数极限的邻域定义]
+  \begin{equation}
+    (\lim_{E \owns x \to a} f(x) = A) := \forall U_{\mathbb{R}}(A) \exists \dot{U}_E(a) (f(\dot{U}_E(a)) \subset U_{\mathbb{R}}(A))
+  \end{equation}
+\end{definition}
+\begin{remark}
+  If $f$ is convergent at $a$, $a$ must be a limit point of its domain $E$.
+\end{remark}
+
+\begin{example}[符号函数$\sgn x$]
+  
+\end{example}
+
+\begin{proposition}[Heine's Proposition]
+  
+\end{proposition}
+
+\begin{corollary}[Existence of the Limit of a Function by Limits of Sequences]
+  
+\end{corollary}
+
+\section{Properties of the Limit of a Function}
+
+\begin{remark}
+  In order to establish the properties of the limit of a function, we need only 
+  two properties of deleted neighborhoods of a limit point of a set:
+  \begin{itemize}
+    \item $\dot{U}_E(a) \neq \emptyset$
+    \item $\forall \dot{U}_E^1(a) \dot{U}_E^2(a) \exists \dot{U}_E(a) 
+    (\dot{U}_E(a) \subset \dot{U}_E^1(a) \cap \dot{U}_E^2(a))$
+  \end{itemize}
+  This observation leads us to a general concept of a limit of a function and 
+  the possibility of using the theory of limits in the future not only for 
+  functions defined on sets of numbers.
+\end{remark}
+
+\subsection{General Properties}
+
+\begin{definition}[最终常数函数]
+  
+\end{definition}
+
+\begin{definition}[有界函数/最终有界函数，上有界函数/最终上有界函数，下有界函数/最终下有界函数]
+  A function $f: E \to \mathbb{R}$ is bounded, bounded above, or bounded below 
+  respectively if there is a number $C \in \mathbb{R}$ such that $|f(x)| < C$, 
+  $f(x) < C$, or $C < f(x)$ for all $x \in E$.
+
+  If one of these three relations holds only in some deleted neighborhood 
+  $\dot{U}_E(a)$, the function is said to be ultimately bounded, ultimately 
+  bounded above, or ultimatedly bounded below as $E \owns x \to a$ respectively.
+\end{definition}
+
+\begin{theorem}
+  \begin{enumerate}
+    \item (Ultimate Constant has the Limit) $(f:E \to \mathbb{R}$ is ultimately the constant $A$ as $E 
+    \owns x \to a)$ $\Rightarrow$ $\lim_{E \owns x \to a} f(x) = A$
+    \item (Ultimately Boundness of the Limit) $(\exists \lim_{E \owns x \to a} f(x))$ $\Rightarrow$ $(f: E \to \mathbb{R}$ is ultimately bounded as $E \owns x \to a)$
+    \item (Uniqueness of the Limit) $(\lim_{E \owns x \to a} f(x) = A_1) \wedge (\lim_{E \owns x \to a} f(x) = A_2)$ $\Rightarrow$ $A_1 = A_2$
+  \end{enumerate}
+\end{theorem}
+\begin{proof}
+  
+\end{proof}
+
+\subsection{Properties Involving Arithmetic Operations}
+
+\begin{definition}[两个函数的和、积与商]
+  
+\end{definition}
+
+\begin{theorem}[四则运算中的函数极限]
+  Let $f:E \to \mathbb{R}$ and $g:E \to \mathbb{R}$ be two functions with a 
+  common domain of definition. If $\lim_{E \owns x \to a} f(x) = A$ and 
+  $\lim_{E \owns x \to a} g(x) = B$, then
+  \begin{itemize}
+    \item $\lim_{E \owns x \to a} f(x) + g(x) = A + B$
+    \item $\lim_{E \owns x \to a} f(x) g(x) = AB$
+    \item $\lim_{E \owns x \to a} \frac{f(x)}{g(x)} = \frac{A}{B}$, if 
+    $B \neq 0$ and $g(x) \neq 0$ for $x \in E$.
+  \end{itemize}
+\end{theorem}
+
+\begin{definition}[Infinitesimal]
+  A function $f: E \to \mathbb{R}$ is said to be infinitesimal as $E \owns x \to 
+  a$ if $\lim_{E \owns x \to a} f(x) = 0$
+\end{definition}
+
+\begin{proposition}[无穷小函数的四则运算性质]
+  Let $\alpha: E \to \mathbb{R}$ is an infinitesimal as $E \owns x \to a$, then
+  \begin{itemize}
+    \item If $\beta: E \to \mathbb{R}$ is also an infinitesimal as $E \owns x 
+    \to a$, then their sum $\alpha + \beta$ is also an infinitesimal as $E \owns 
+    x \to a$.
+    \item If $\beta: E \to \mathbb{R}$ is also an infinitesimal as $E \owns x 
+    \to a$, then their product $\alpha \beta$ is also an infinitesimal as $E 
+    \owns x \to a$.
+    \item If $\beta: E \to \mathbb{R}$ is ultimately bounded as $E \owns x \to a$,
+    then their product $\alpha \beta$ is also an infinitesimal as $E \owns x \to 
+    a$. 
+  \end{itemize}
+\end{proposition}
+\begin{proof}
+  
+\end{proof}
+\begin{remark}
+  \begin{equation}
+    (\lim_{E \owns x \to a} f(x) = A) \Leftrightarrow (\lim_{E \owns x \to a} (f(x) - A) = 0)
+  \end{equation}
+\end{remark}
+\subsection{Properties Involving Inequalities}
+
+\begin{theorem}
+  \begin{itemize}
+    \item (局部保序性) If the functions $f: E \to \mathbb{R}$ and $g: E \to \mathbb{R}$ are such that 
+    \item (夹逼性)
+  \end{itemize}
+\end{theorem}
+
+\begin{corollary}[局部保号性]
+  
+\end{corollary}
+
+\begin{corollary}[极限值的不等关系]
+  Suppose $\lim_{E \owns x \to a} f(x) = A$ and $\lim_{E \owns x \to a} g(x) = 
+  B$. Let $\dot{U}_E(a)$ be a deleted neighborhood of $a \in E$.
+  \begin{description}
+    \item[(a)] If $f(x) > g(x)$ for all $x \in \dot{U}_E(a)$, then $A \geq B$.
+    \item[(b)] If $f(x) \geq g(x)$ for all $x \in \dot{U}_E(a)$, then $A \geq B$.
+    \item[(c)] If $f(x) > B$ for all $x \in \dot{U}_E(a)$, then $A \geq B$.
+    \item[(d)] If $f(x) \geq B$ for all $x \in \dot{U}_E(a)$, then $A \geq B$.
+  \end{description}
+\end{corollary}
+
+\subsection{Two Important Examples}
+
+\begin{example}[研究$\frac{\sin x}{x}$在$x=0$处的极限]
+  \begin{equation}
+    \lim_{x \to 0} \frac{\sin x}{x} = 1
+  \end{equation}
+\end{example}
+
+\begin{example}[定义指数函数、对数函数和幂函数]
+  
+\end{example}
+
+\section{The General Definition of the Limit of a Function}
+
+\subsection{Definition and Examples of a Base}
+
+\begin{definition}
+  A set $\mathcal{B}$ of subsets $B \subset X$ of a set $X$ is called a base in 
+  $X$ if the following conditions hold:
+  \begin{itemize}
+    \item $\forall B \in \mathcal{B}$ $(B \neq \emptyset)$
+    \item $\forall B_1, B_2 \in \mathcal{B} \exists B \in \mathcal{B}$ $(B 
+    \subset B_1 \cap B_2)$
+  \end{itemize}
+\end{definition}
+
+Some useful bases in analysis
+\[
+  \begin{matrix}
+    x \to a & \dot{U}(a):= \lbrace x \in \mathbb{R} \mid a - \delta_1 < x < a + \delta_2 \wedge x \neq a, \delta_1 > 0, \delta_2 > 0\rbrace \\
+    x \to a+0 & E_a^+ := \lbrace x \in \mathbb{R} \mid a < x \rbrace, \dot{U}_{E_a^+}(a) := E_a^+ \cap \dot{U}(a) = \lbrace x \in \mathbb{R} \mid a < x < a + \delta, \delta > 0 \rbrace \\
+    x \to a-0 & E_a^+ := \lbrace x \in \mathbb{R} \mid x < a \rbrace, \dot{U}_{E_a^-}(a) := E_a^- \cap \dot{U}(a) = \lbrace x \in \mathbb{R} \mid a - \delta < x < a, \delta > 0 \rbrace \\
+    x \to \infty & U(\infty) := \lbrace x \in \mathbb{R} \mid |x| > \delta, \delta \in \mathbb{R} \rbrace \\
+    x \to +\infty & E_{\infty}^+ := \lbrace x \in \mathbb{R} \mid c < x, c \in \mathbb{R} \rbrace, U_{E_{\infty}^+}(\infty) := E_{\infty}^+ \cap U(\infty) = \lbrace x \in \mathbb{R} \mid c < x, c \in \mathbb{R} \rbrace \\
+    x \to -\infty & E_{\infty}^- := \lbrace x \in \mathbb{R} \mid x < c, c \in \mathbb{R} \rbrace, U_{E_{\infty}^-}(\infty) := E_{\infty}^- \cap U(\infty) = \lbrace x \in \mathbb{R} \mid x < c, c \in \mathbb{R} \rbrace \\
+    E \owns x \to a & \dot{U}_E(a) := E \cap \dot{U}(a) \\
+    E \owns x \to a+0 & \dot{U}_E(a+0) := E \cap E_a^+ \cap \dot{U}(a) \\
+    E \owns x \to a-0 & \dot{U}_E(a-0) := E \cap E_a^- \cap \dot{U}(a) \\
+    E \owns x \to \infty & U_E(\infty) := E \cap U(\infty) \\
+    E \owns x \to +\infty & U_E(+\infty) := E \cap E_{\infty}^+ \cap U(\infty) \\
+    E \owns x \to -\infty & U_E(-\infty) := E \cap E_{\infty}^- \cap U(\infty)\\
+  \end{matrix}
+\]
+
+\subsection{Limit over a Base}
+
+\begin{definition}[The Limit of a Function over a Base]
+  \begin{equation}
+    (\lim_{\mathcal{B}} f(x) = A) := (\forall U(A) \exists B \in \mathcal{B} (f(B) \subset U(A)))
+  \end{equation}
+\end{definition}
+
+\[
+  \lim_{x \to a} f(x) = A := (\forall \epsilon > 0, \exists \delta > 0, \forall x \in (a - \delta, a + \delta): (|f(x) - A| < \epsilon))
+\]
+\[
+  \lim_{x \to a+0} f(x) = A 
+\]
+\[
+  \lim_{x \to a-0} f(x) = A  
+\]
+\[
+  \lim_{x \to \infty} f(x) = A  
+\]
+\[
+  \lim_{x \to +\infty} f(x) = A  
+\]
+\[
+  \lim_{x \to -\infty} f(x) = A  
+\]
+\[
+  \lim_{x \to a} f(x) = \infty
+\]
+\[
+  \lim_{x \to a+0} f(x) = \infty
+\]
+\[
+  \lim_{x \to a-0} f(x) = \infty
+\]
+\[
+  \lim_{x \to \infty} f(x) = \infty
+\]
+\[
+  \lim_{x \to +\infty} f(x) = \infty
+\]
+\[
+  \lim_{x \to -\infty} f(x) = \infty
+\]
+\[
+  \lim_{x \to a} f(x) = +\infty
+\]
+\[
+  \lim_{x \to a+0} f(x) = +\infty
+\]
+\[
+  \lim_{x \to a-0} f(x) = +\infty
+\]
+\[
+  \lim_{x \to \infty} f(x) = +\infty
+\]
+\[
+  \lim_{x \to +\infty} f(x) = +\infty
+\]
+\[
+  \lim_{x \to -\infty} f(x) = +\infty
+\]
+\[
+  \lim_{x \to a} f(x) = -\infty
+\]
+\[
+  \lim_{x \to a+0} f(x) = -\infty
+\]
+\[
+  \lim_{x \to a-0} f(x) = -\infty
+\]
+\[
+  \lim_{x \to \infty} f(x) = -\infty
+\]
+\[
+  \lim_{x \to +\infty} f(x) = -\infty
+\]
+\[
+  \lim_{x \to -\infty} f(x) = -\infty
+\]
+
+\section{The Existence of the Limit of a Function}
+
+\subsection{Cauchy's Criterion}
+
+\begin{definition}[Oscillation]
+  
+\end{definition}
+
+\begin{theorem}[Cauchy's Criterion on the Limit of a Function]
+  
+\end{theorem}
+
+\subsection{The Limit of a Composite Function}
+
+\begin{theorem}[Theorem of the Limit of a Composite Function]
+  
+\end{theorem}
+
+\begin{example}
+  \begin{equation}
+    \lim_{x \to \infty} (1 + \frac{1}{x})^x = e
+  \end{equation}
+\end{example}
+
+\subsection{The Limit of a Monotonic Function}
+
+\begin{definition}[Monotonic Functions]
+  A function $f:E \to \mathbb{R}$ defined on a set $E \subset \mathbb{R}$ is 
+  said to be
+  \begin{itemize}
+    \item increasing if $\forall x_1, x_2 \in E (x_1 < x_2 \Rightarrow f(x_1) < f(x_2))$
+    \item nondecreasing if $\forall x_1, x_2 \in E (x_1 < x_2 \Rightarrow f(x_1) \leq f(x_2))$
+    \item decreasing if $\forall x_1, x_2 \in E (x_1 < x_2 \Rightarrow f(x_1) > f(x_2))$
+    \item nonincreasing if $\forall x_1, x_2 \in E (x_1 < x_2 \Rightarrow f(x_1) \geq f(x_2))$
+  \end{itemize}
+\end{definition}
+\begin{remark}
+  Be mindful of that the monotonicity is defined on the complete domain of the 
+  definition, and thus the condition is $\forall x_1, x_2 \in E$ no matter what 
+  a set $E$ is.
+\end{remark}
+
+\begin{theorem}[The Existence Criterion of the Limit of a Monotonic Function]
+  
+\end{theorem}
+
+\subsection{Comparison of the Limiting Behaviors of Functions}
+
+\begin{proposition}
+  
+\end{proposition}
+
+\begin{remark}
+  The above proposition can not be generalized to the limit of a sum of 
+  functions.
+\end{remark}
+
+\section{方法与技巧}
+
+\subsection{证明与研究函数极限}
+
+\begin{itemize}
+  \item 定义法
+  \item 变量代换
+\end{itemize}
+
+\begin{remark}
+  在研究函数极限时使用变量代换是否总是成立？这个问题使用数学语言来描述如下：\\
+  Suppose that $\lim_{x \to a} g(x) = A$, $\lim_{x \to A} f(x) = B$, is it true that 
+  \[
+    \lim_{x \to a} f(g(x)) = \lim_{y \to A} f(y)
+  \]
+  In fact it is not always true. Here is a counterexample: Let $g(x) \equiv 0$, 
+  and thus $\lim_{x \to 0} g(x) = 0$. Let $f(x) = 
+  \begin{cases}
+    1, x = 0 \\
+    0, x \neq 0
+  \end{cases}$. Then we have $\lim_{x \to 0} f(x) = 0$, $\lim_{x \to 0} f(g(x)) 
+  = 1$. 这里的数学直观是$\lim_{x \to a} g(x) = A$决定了$y = g(x) \to A$的方式。它与
+  $\lim_{x \to A} f(x) = B$中$x \to A$的不同可能导致结果的不同。
+
+  Here are two propositions related to this problem:
+  \begin{proposition}
+    Suppose that $\lim_{x \to a} g(x) = A$, $\lim_{x \to A} f(x) = B$. If any of 
+    the following conditions is true:
+    \begin{itemize}
+      \item $\exists \delta_0 > 0$ such that $\forall x \in O(a, \delta_0) 
+      \setminus \{a\}$: $g(x) \neq A$.
+      \item $\lim_{x \to A} f(x) = f(A)$.
+      \item $A = \infty$, and $\lim_{x \to \infty} f(x)$ is defined.
+    \end{itemize}
+    then the following is true:
+    \[
+      \lim_{x \to a} f(g(x)) = \lim_{y \to A} f(y)
+    \]
+  \end{proposition}
+  \begin{proof}
+    Hint:
+    \begin{itemize}
+      \item Notice the difference between the conclusion of the definition of 
+      $\lim_{x \to a} g(x) = A$, and the condition of the definition of 
+      $\lim_{x \to A} f(x) = B$.
+      \item Notice what change the fact of continuity brings to the definition 
+      of $\lim_{x \to A} f(x) = B$.
+    \end{itemize}
+  \end{proof}
+
+  \begin{proposition}
+    If $\lim_{x \to a} g(x) = A$, $\lim_{x \to A} f(x) = B$, then exact one of 
+    the following situation is true:
+    \begin{itemize}
+      \item $\lim_{x \to a} f(g(x)) = B$
+      \item $\lim_{x \to a} f(g(x)) = g(A)$
+      \item $\lim_{x \to a} f(g(x))$ is not defined
+    \end{itemize}
+  \end{proposition}
+  \begin{proof}
+    Hint: Using the first condition of the previous proposition to discuss 
+    different kinds of $g(x)$.
+  \end{proof}
+\end{remark}
+
+\end{document}
