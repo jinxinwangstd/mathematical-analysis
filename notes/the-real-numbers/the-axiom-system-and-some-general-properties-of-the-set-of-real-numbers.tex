@@ -1,0 +1,129 @@
+\documentclass[onecolumn]{ctexart}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{indentfirst}
+\usepackage{bm}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\geometry{a4paper,scale=0.8}
+
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{remark}{Remark}
+\newtheorem{example}{Example}
+
+\title{Notes of "The Axiom System and Some General Properties of the Set of Real Numbers"}
+\author{Jinxin Wang}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{Overview}
+\begin{itemize}
+  \item Definition of the Set of Real Numbers
+  \item Some General Algebraic Properties of Real Numbers
+  \item The Completeness Axiom and the Existence of a Least Upper (or Greatest Lower) Bound of a Set of Numbers
+  \begin{itemize}
+    \item Definition: A bounded-above/bounded below set
+    \item Definition: A bounded set
+    \item Definition: The maximal/minimal element of a set
+    \begin{itemize}
+      \item Remark: The formal expression of the definition
+      \item Remark: The uniqueness of the maximal/minimal element of a set
+      \item Remark: The existence of the maximal/minimal element of a set
+    \end{itemize}
+    \item Definition: The least upper bound and the greatest lower bound
+    \begin{itemize}
+      \item Remark: The formal express of the definition
+    \end{itemize}
+    \item Lemma: The least upper bound principle
+  \end{itemize}
+\end{itemize}
+
+\section{Definition of the Set of Real Numbers}
+
+\section{Some General Algebraic Properties of Real Numbers}
+
+\section{The Completeness Axiom and the Existence of a Least Upper (or Greatest Lower) Bound of a Set of Numbers}
+
+\begin{definition}[A Bounded-Above/Bounded-Below Set]
+  A set $X \subset \mathbb{R}$ is said to be bounded above (resp. bounded below) 
+  if there exists a number $c \in \mathbb{R}$ such that $x \leq c$ (resp. $c 
+  \leq x$) for all $x \in X$.
+\end{definition}
+
+\begin{definition}[A Bounded Set]
+  A set that is bounded both above and below is called bounded.
+\end{definition}
+
+\begin{definition}[The Maximal/Minimal Element of a Set]
+  An element $a \in X$ is called the largest or maximal (resp. the smallest or 
+  minimal) element of $X$ if $x \leq a$ (resp. $a \leq x$) for all $x \in X$
+\end{definition}
+\begin{remark}[The Formal Expression of the Definition]
+  We can write the above definition in a formal expression:
+  \[
+    (a = \max X) \coloneqq (a \in X \wedge \forall x \in X (x \leq a))
+  \]
+  \[
+    (a = \min X) \coloneqq (a \in X \wedge \forall x \in X (a \leq x))
+  \]
+\end{remark}
+\begin{remark}[The Uniqueness of the Maximal/Minimal Element of a Set]
+  
+\end{remark}
+\begin{remark}[The Existence of the Maximal/Minimal Element of a Set]
+  Not every set, or not even every bounded set, has a maximal or minimal element.
+  Example: $I = \lbrace x \mid 0 \leq x < 1 \rbrace$ does not have a maximal 
+  element. In my opinion it is due to the 稠密性 of real numbers.
+\end{remark}
+
+\begin{definition}[The Least Upper Bound]
+  The minimal number that bounds a set $X \subset \mathbb{R}$ above is called 
+  the least upper bound of $X$ and denoted $\sup X$ (the supremum of X) or 
+  $\sup_{x \in X} x$.
+\end{definition}
+\begin{remark}
+  \[
+    (s = \sup X) \coloneqq ((\forall x \in X (x \leq s)) \wedge (\forall s' < s \exists x' \in X (s' < x')))
+  \]
+\end{remark}
+
+\begin{definition}[The Greatest Lower Bound]
+  Similarly, the greatest lower bound of $X$, denoted $\inf X$ (the infimum of X) 
+  or $\inf_{x \in X} x$, is defined as
+  \[
+    (i = \inf X) \coloneqq ((\forall x \in X (i \leq x)) \wedge (\forall i' > i \exists x' \in X (x' < i')))
+  \]
+\end{definition}
+
+\begin{lemma}[The Least Upper Bound Principle]
+  Every nonempty set of real numbers that is bounded from above has a unique 
+  least upper bound.
+\end{lemma}
+\begin{proof}
+  (TODO)
+\end{proof}
+
+\begin{lemma}[The Greatest Lower Bound Principle]
+  \[
+    (\textnormal{X is nonempty and bounded below}) \Leftarrow (\exists! \inf X)
+  \]
+\end{lemma}
+
+
+
+\end{document}
