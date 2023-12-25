@@ -73,11 +73,39 @@
   point common to all the intervals.
 \end{lemma}
 \begin{proof}
-  (TODO)
+  Hint: By the least upper bound principle.
+  \begin{itemize}
+    \item Let $I_i = \lbrack a_i, b_i \rbrack, i \in \mathbb{N}^+$. Since $I_1 
+    \supset I_2 \supset \cdots \supset I_n \supset \cdots$, we have
+    \[
+      a_1 \leq a_2 \leq \cdots \leq a_n \leq \cdots
+    \]
+    \[
+      b_1 \geq b_2 \geq \cdots \geq b_n \geq \cdots
+    \]
+    \item Let $A = \lbrace a_i \mid i \in \mathbb{N}^+ \rbrace$, and $B = \lbrace 
+    b_i \mid i \in \mathbb{N}^+ \rbrace$. $\forall i \in \mathbb{N}^+$, $a_i$ is 
+    a lower bound of $B$, and $b_i$ is an upper bound of $A$. According to the 
+    least upper bound principle, there exist $s = \sup A$ and $i = \inf B$.
+    \item We claim that $s \leq i$. Suppose that $s > i$, then there exists $j, k 
+    \in \mathbb{N}^+$ such that $a_j > b_k$, which is contradictory to our 
+    condition about the order between elements of $A$ and $B$. Therefore, $C = 
+    \lbrace c \mid \sup A \leq c \leq \inf B \rbrace$ contains the only real 
+    numbers that belong to all intervals.
+    \item If for any $\epsilon > 0$ there is an interval $I_k$ whose length 
+    $|I_k|$ is less than $\epsilon$, then we claim that $s = i$. If $s < i$, then 
+    let $d = i - s > 0$, and for all intervals their lengths should be greater 
+    than or equal to $d$, which is contradictory to that there exists $I_k$ whose 
+    length $|I_k| < d$. Hence $C$ contains only one element, which is $\sup A 
+    (\inf B)$.
+  \end{itemize}
 \end{proof}
 \begin{remark}
-  Notice the sequence of nested intervals are closed intervals. If they are open 
-  intervals (TODO)
+  Notice the sequence of nested intervals are closed intervals. From the proof we 
+  can see, if the sequence of nested intervals are open intervals, the unique 
+  point $\sup A (\inf B)$ might be one of the endpoints of all intervals and thus 
+  is not included in the sequence of intervals. Example: $\lbrace I_n \rbrace$ 
+  where $I_n = (0, \frac{1}{n})$.
 \end{remark}
 
 \section{The Finite Covering Lemma (Borel-Lebesgue Principle)}
@@ -118,7 +146,18 @@
   Every bounded infinite set of real numbers has at least one limit point.
 \end{lemma}
 \begin{proof}
-  (TODO)
+  Hint: By the finite covering lemma and proof by contradiction.
+  \begin{itemize}
+    \item Let $X \subset \mathbb{R}$ be the bounded infinite set of real numbers.
+    Since it is bounded, there exists a closed interval $I$ such that $X \subset 
+    I$.
+    \item Assume that $\forall p \in \mathbb{R}$ is not a limit point of $X$, and 
+    hence there exists a neighborhood $U(p)$ of $p$ that contains only a finite 
+    subset of $X$.
+  \end{itemize}
+\end{proof}
+\begin{proof}
+  Hint: By the nested interval lemma.
 \end{proof}
 
 \end{document}
