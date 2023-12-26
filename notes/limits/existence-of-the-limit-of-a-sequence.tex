@@ -33,9 +33,95 @@
 
 \section{Overview}
 
+\begin{itemize}
+  \item The Cauchy Criterion
+  \begin{itemize}
+    \item Definition: A fundamental or Cauchy sequence
+    \item Theorem: Cauchy's convergence criterion
+  \end{itemize}
+  \item A Criterion for the Existence of the Limit of a Monotonic Sequence
+  \begin{itemize}
+    \item Definition: An increasing/nondecreasing/nonincreasing/decreasing sequence and monotonic sequences
+    \item Definition: A bounded-above sequence
+    \item Theorem: Weierstrass's theorem
+  \end{itemize}
+\end{itemize}
+
 \section{The Cauchy Criterion}
 
+\begin{definition}[A fundamental or Cauchy sequence]
+  A sequence $\lbrace x_n \rbrace$ is called a fundamental or Cauchy sequence if 
+  for any $\epsilon > 0$ there exists an index $N \in \mathbb{N}$ such that 
+  $|x_m - x_n| < \epsilon$ whenever $n > N$ and $m > N$.
+\end{definition}
+
+\begin{theorem}[Cauchy's convergence criterion]
+  A numerical sequence converges if and only if it is a Cauchy sequence.
+\end{theorem}
+
+\begin{example}
+  \[
+    x_n = 1 + \frac{1}{2} + \cdots + \frac{1}{n}
+  \]
+
+  \[
+    \begin{split}
+      x_{2n} - x_{n} &= \frac{1}{n+1} + \frac{1}{n+2} + \cdots + \frac{1}{2n} \\
+                     &> n \cdot \frac{1}{2n} \\
+                     &= \frac{1}{2}
+    \end{split}
+  \]
+\end{example}
+
 \section{A Criterion for the Existence of the Limit of a Monotonic Sequence}
+
+\begin{definition}[An increasing/nondecreasing/nonincreasing/decreasing sequence and monotonic \\ sequences]
+  A sequence $\lbrace x_n \rbrace$ is
+  \begin{itemize}
+    \item increasing if $x_n < x_{n+1}$ for all $n \in \mathbb{N}$
+    \item nondecreasing if $x_n \leq x_{n+1}$ for all $n \in \mathbb{N}$
+    \item nonincreasing if $x_n \geq x_{n+1}$ for all $n \in \mathbb{N}$
+    \item decreasing if $x_n > x_{n+1}$ for all $n \in \mathbb{N}$
+  \end{itemize}
+
+  Sequences of these four types are called monotonic sequences.
+\end{definition}
+
+\begin{definition}[A bounded-above sequence]
+  
+\end{definition}
+
+\begin{theorem}
+  In order for a nondecreasing sequence to have a limit it is necessary and 
+  sufficient that it be bounded above.
+\end{theorem}
+\begin{proof}
+  
+\end{proof}
+\begin{remark}
+  An analogous theorem exists that it is sufficient and necessary for a 
+  nonincreasing sequence to have a limit that it be bounded below.
+\end{remark}
+
+\begin{example}
+  $\lim_{n \to \infty} \frac{n}{q^n} = 0$ if $q > 1$.
+\end{example}
+
+\begin{corollary}
+  \[
+    \lim_{n \to \infty} \sqrt[n]{n} = 1
+  \]
+\end{corollary}
+
+\begin{corollary}
+  \[
+    \lim_{n \to \infty} \sqrt[n]{a} = 1 \thickspace \textnormal{for any} \thickspace a > 0
+  \]
+\end{corollary}
+
+\begin{example}
+  $\lim_{n \to \infty} \frac{q^n}{n!} = 0$ where $q \in \mathbb{R}$ and $n \in \mathbb{N}$.
+\end{example}
 
 \section{The Number e}
 
@@ -48,7 +134,9 @@
 \end{proof}
 
 \begin{definition}
-  
+  \[
+    e \coloneqq \lim_{n \to \infty} (1 + \frac{1}{n})^n
+  \]
 \end{definition}
 
 \begin{proposition}
@@ -65,19 +153,134 @@
   
 \end{proof}
 
-\subsection{pi}
+\section{Subsequences and the Partial Limits}
 
-\subsection{Euler Number}
+\begin{definition}[A subsequence of a sequence]
+  If $x_1, x_2, \ldots, x_n, \ldots$ is a sequence and $n_1 < n_2 < \cdots < n_k 
+  < \cdots$ is an increasing sequence of natural numbers, then the sequence 
+  $x_{n_1}, x_{n_2}, \ldots, x_{n_k}, \ldots$ is called a subsequence of the 
+  sequence $\lbrace x_n \rbrace$.
+\end{definition}
 
-\begin{theorem}[Weierstrass Theorem / 单调有界数列收敛定理]
+\begin{lemma}[Bolzano-Weierstrass theorem]
+  Every bounded sequence of real numbers contains a convergent subsequence.
+\end{lemma}
+\begin{proof}
+  Hint:
+  \begin{itemize}
+    \item Let $E$ be the set of values of $x_n$. Hence $E$ is bounded.
+    \item If the number of elements of $E$ is finite, then there exists $c \in E$ 
+    such that $x_{n_1} = x_{n_2} = \cdots = x_{n_k} = \cdots = c$. Hence the 
+    subsequence $\lbrace x_{n_1}, x_{n_2}, \ldots, x_{n_k}, \ldots \rbrace$ 
+    converges to $c$.
+    \item If the number of elements of $E$ is infinite, then by 
+    Bolzano-Weierstrass principle it has a limit point $c$.
+  \end{itemize}
+\end{proof}
+
+\begin{definition}[A sequence tends to positive infinity]
+  We shall write $x_n \to +\infty$ and say that the sequence $\lbrace x_n 
+  \rbrace$ tends to positive infinity if for each number $c$ there exists $N \in 
+  \mathbb{N}$ such that $x_n > c$ for all $n > N$.
+\end{definition}
+\begin{remark}[Definitions of a sequence tends to negative infinity and tends to infinity]
+  There are two analogous definitions of a sequence tends to negative infinity 
+  and tends to infinity:
+  \begin{itemize}
+    \item The sequence $\lbrace x_n \rbrace$ tends to negative infinity if for 
+    each number $c$ there exists $N \in \mathbb{N}$ such that $x_n < c$ for all 
+    $n > N$.
+    \item The sequence $\lbrace x_n \rbrace$ tends to infinity if for each number 
+    $c$ there exists $N \in \mathbb{N}$ such that $|x_n| > c$ for all $n > N$.
+  \end{itemize}
+\end{remark}
+\begin{remark}[Definitions of a sequence tends to positive infinity, negative infinity, and infinity in symbolic logic]
+  \[
+    (x_n \to +\infty) \coloneqq (\forall c \in \mathbb{R} \exists N \in \mathbb{N} \forall n > N (c < x_n))
+  \]
+  \[
+    (x_n \to -\infty) \coloneqq (\forall c \in \mathbb{R} \exists N \in \mathbb{N} \forall n > N (x_n < c))
+  \]
+  \[
+    (x_n \to \infty) \coloneqq (\forall c \in \mathbb{R} \exists N \in \mathbb{N} \forall n > N (c < |x_n|))
+  \]
+\end{remark}
+
+\begin{lemma}
+  From each sequence of real numbers one can extract either a convergent 
+  subsequence or a subsequence that tends to infinity.
+\end{lemma}
+\begin{proof}
+  Hint:
+  \begin{itemize}
+    \item If the sequence is bounded, then by Bolzano-Weierstrass theorem we can 
+    extract a convergent subsequence.
+    \item If the sequence is unbounded, then for any $c \in \mathbb{R}$, there 
+    exists at least one term $|x_k| > c$. So we can construct such a subsequence 
+    where the $k$-th term $x_{n_k}$ holds that $|x_{n_k}| > k$ for all $k \in 
+    \mathbb{N}$. It is clear that such a subsequence exists and it tends to 
+    infinity.
+  \end{itemize}
+\end{proof}
+
+\begin{definition}[The inferior limit of a sequence]
+  The number $l = \lim_{n \to \infty} \inf_{k \geq n} x_k$ is called the inferior 
+  limit of the sequence $\lbrace x_k \rbrace$ and denoted 
+  $\varliminf_{k \to \infty} x_k$ or $\lim \inf_{k \to \infty} x_k$. If $i_n \to 
+  +\infty$, it is said that the inferior limit of the sequence equals positive 
+  infinity, and we write $\varliminf_{k \to \infty} x_k = +\infty$ or $\lim 
+  \inf_{k \to \infty} x_k = +\infty$. If the original sequence $\lbrace x_k 
+  \rbrace$ is not bounded below, then we shall have $i_n = \inf_{k \geq n} x_k = 
+  -\infty$ for all $n$. In that case we say that the inferior limit of the 
+  sequence equals negative infinity and write $\varliminf_{k \to \infty} x_k = 
+  -\infty$ or $\lim \inf_{k \to \infty} x_k = -\infty$.
+  \[
+    \varliminf_{k \to \infty} x_k \coloneqq \lim_{n \to \infty} \inf_{k \geq n} x_k
+  \]
+\end{definition}
+
+\begin{definition}[The superior limit of a sequence]
+  \[
+    \varlimsup_{k \to \infty} x_k \coloneqq \lim_{n \to \infty} \sup_{k \geq n} x_k
+  \]
+\end{definition}
+
+\begin{definition}[A partial limit of a sequence]
+  A number (or the symbol $+\infty$ or $-\infty$) is called a partial limit of a 
+  sequence, if the sequence contains a subsequence converging to that number.
+\end{definition}
+
+\begin{proposition}
+  The inferior and superior limit of a bounded sequence are respectively the 
+  smallest and largest partial limits of the sequence.
+\end{proposition}
+\begin{proof}
   
-\end{theorem}
+\end{proof}
+
+\begin{remark}
+  The Bolzano-Weierstrass Lemma in its restricted formulation follows from the 
+  above proposition.
+\end{remark}
+
+\begin{proposition}
+  For any sequence, the inferior limit is the smallest of its partial limits and 
+  the superior limit is the largest of its partial limits.
+\end{proposition}
+
+\begin{remark}
+  The Bolzano-Weierstrass Lemma in its wider formulation follows from the above 
+  proposition.
+\end{remark}
 
 \begin{corollary}
-  当数列严格单调增加时，
+  A sequence has a limit or tends to negative or positive infinity if and only if 
+  its inferior and superior limits are the same.
 \end{corollary}
 
-\section{Subsequences and the Partial Limits}
+\begin{corollary}
+  A sequence converges if and only if every subsequence of it converges.
+\end{corollary}
 
 \section{The Limit of a Transformed Sequence}
 
