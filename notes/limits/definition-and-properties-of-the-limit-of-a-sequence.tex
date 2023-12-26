@@ -35,48 +35,141 @@
 
 \section{Definition of the Limit of a Sequence}
 
-\begin{definition}[The Limit of a Sequence]
-  ($\epsilon$-N) 
-
-  (neighborhood-N)
+\begin{definition}[A Sequence]
+  A function $f: \mathbb{N} \to X$ is called a sequence.
 \end{definition}
 
-\begin{remark}
-  The two definitions of the limit of a sequence is equivalent. The equivalence 
-  relation between them relies on the definition of a neighborhood.
+\begin{definition}[The Limit of a Numerical Sequence]
+  A number $A \in \mathbb{R}$ is called the limit of the numerical sequence 
+  $\lbrace x_n \rbrace$ if for every neighborhood $V(A)$ of $A$ there exists an 
+  index $N$ (depending on $V(A)$) such that all terms of the sequence having 
+  index larger than N belong to the neighborhood $V(A)$.
+\end{definition}
+\begin{remark}[An Equivalent Definition of the Limit of a Numerical Sequence with $\epsilon-N$]
+  Another equivalent definition of the limit of a numerical sequence is:
+
+  A number $A \in \mathbb{R}$ is called the limit of the numerical sequence 
+  $\lbrace x_n \rbrace$ if for every $\epsilon > 0$ there exists an index $N$ 
+  (depending on $\epsilon$) such that $|x_n - A| < \epsilon$ for all $n > N$.
+
+  Proof of equivalence: (TODO)
+\end{remark}
+\begin{remark}[Formulation of definitions of the limit of a numerical sequence in symbolic logic]
+  \[
+    (\lim_{n \to \infty} x_n = A) \coloneqq (\forall V(A) \exists N \in \mathbb{N} \forall n > N (x_n \in V(A)))
+  \]
+  \[
+    (\lim_{n \to \infty} x_n = A) \coloneqq (\forall \epsilon > 0 \exists N \in \mathbb{N} \forall n > N (|x_n - A| < \epsilon))
+  \]
 \end{remark}
 
-\begin{definition}[Divergence]
-  
+\begin{definition}[A convergent/divergent sequence]
+  If $\lim_{n \to \infty} x_n = A$, we say that the sequence $\lbrace x_n 
+  \rbrace$ converges to $A$ or tends to $A$ and write $x_n \to A$ as $n \to 
+  \infty$.
+
+  A sequence having a limit is said to be convergent. A sequence that does not 
+  have a limit is said to be divergent.
 \end{definition}
 
 \section{Properties of the Limit of a Sequence}
 
 \subsection{General Properties}
 
-\begin{itemize}
-  \item 有限点无关性：A finite number of terms of a sequence doesn't affect the 
-  convergence of the sequence. (Proof: definition)
-  \item 唯一性：The limit of a convergent sequence is unique. (Proof: 
-  contradiction + definition)
-  \item 有界性：A convergent sequence is bounded. (Proof: definition)
-\end{itemize}
+The word "general" means that the properties in this section are possessed not 
+only by numerical sequences, but by other kinds of sequences as well.
+
+\begin{definition}[An ultimately constant sequence]
+  If there exists a number $A$ and an index $N$ such that $x_n = A$ for all $n > 
+  N$, the sequence $\lbrace x_n \rbrace$ will be called ultimately constant.
+\end{definition}
+
+\begin{definition}[A bounded sequence]
+  A sequence $\lbrace x_n \rbrace$ is bounded if there exists $M$ such that 
+  $|x_n| < M$ for all $n \in \mathbb{N}$.
+\end{definition}
+
+\begin{theorem}
+  \begin{description}
+    \item[T1] An ultimately constant sequence converges.
+    \item[T2] Any neighborhood of the limit of a sequence contains all but a 
+    finite number of terms of the sequence.
+    \item[T3] A convergent sequence cannot have two different limits.
+    \item[T4] A convergent sequence is bounded.
+  \end{description}
+\end{theorem}
+\begin{proof}
+  \begin{description}
+    \item[Pf of T1] 
+  \end{description}
+\end{proof}
 
 \subsection{Properties Involving Arithmetic Operations}
 
-\begin{theorem}[极限的四则运算]
-  
+\begin{definition}[The sum, product and quotient of two numerical sequences]
+  If $\lbrace x_n \rbrace$ and $\lbrace y_n \rbrace$ are two numerical sequences, 
+  their sum, product, and quotient are the sequences
+  \[
+    \lbrace (x_n + y_n) \rbrace, \lbrace (x_n \cdot y_n) \rbrace, \lbrace (\frac{x_n}{y_n}) \rbrace
+  \]
+  The quotient is defined only when $y_n \neq 0$ for all $n \in \mathbb{N}$.
+\end{definition}
+
+\begin{theorem}[]
+  Let $\lbrace x_n \rbrace$ and $\lbrace y_n \rbrace$ be numerical sequences. If 
+  $\lim_{n \to \infty} x_n = A$ and $\lim_{n \to \infty} y_n = B$, then
+  \begin{description}
+    \item[T1] $\lim_{n \to \infty} (x_n + y_n) = A + B$
+    \item[T2] $\lim_{n \to \infty} (x_n \cdot y_n) = AB$
+    \item[T3] $\lim_{n \to \infty} (\frac{x_n}{y_n}) = \frac{A}{B}$, provided 
+    $y_n \neq 0 (n=1,2,\ldots)$ and $B \neq 0$
+  \end{description}
 \end{theorem}
+\begin{proof}
+  \begin{description}
+    \item[Pf of T1] 
+    \item[Pf of T2] 
+    \item[Pf of T3] 
+  \end{description}
+\end{proof}
 
 \subsection{Properties Involving Inequalities}
 
-\begin{theorem}[保序性]
-  
+\begin{theorem}
+  \begin{description}
+    \item[T1] (保序性) Let $\lbrace x_n \rbrace$ and $\lbrace y_n \rbrace$ be two 
+    convergent sequences with $\lim_{n \to \infty} x_n = A$ and $\lim_{n \to 
+    \infty} y_n = B$. If $A < B$, then there exists an index $N \in \mathbb{N}$ 
+    such that $x_n < y_n$ for all $n > N$.
+    \item[T2] (夹逼性) Suppose the sequences $\lbrace x_n \rbrace$, $\lbrace y_n \rbrace$, 
+    and $\lbrace z_n \rbrace$ are such that $x_n \leq y_n \leq z_n$ for all $n > 
+    N \in \mathbb{N}$. If the sequences $\lbrace x_n \rbrace$ and $\lbrace z_n 
+    \rbrace$ both converge to the same limit, then the sequence $\lbrace y_n 
+    \rbrace$ also converges to that limit.
+  \end{description}
 \end{theorem}
+\begin{proof}
+  \begin{description}
+    \item[Pf of T1] 
+    \item[Pf of T2] 
+  \end{description}
+\end{proof}
 
-\begin{theorem}[夹逼性]
-  
-\end{theorem}
+\begin{corollary}
+  Suppose $\lim_{n \to \infty} x_n = A$ and $\lim_{n \to \infty} y_n = B$. If 
+  there exists $N$ such that for all $n > N$ we have
+  \begin{description}
+    \item[C1] $x_n > y_n$, then $A \geq B$.
+    \item[C2] $x_n \geq y_n$, then $A \geq B$.
+    \item[C3] $x_n > B$, then $A \geq B$.
+    \item[C4] $x_n \geq B$, then $A \geq B$.
+  \end{description}
+\end{corollary}
+\begin{remark}
+  Notice that strict inequality in terms may become equality in the limit. 
+  Example: $\frac{1}{n} > 0$ for all $n \in \mathbb{N}$ but $\lim_{n \to \infty} 
+  \frac{1}{n} = 0$.
+\end{remark}
 
 \section{Infinity}
 
