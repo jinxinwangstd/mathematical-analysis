@@ -1,0 +1,167 @@
+\documentclass[onecolumn]{ctexart}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{indentfirst}
+\usepackage{bm}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\geometry{a4paper,scale=0.8}
+
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{remark}{Remark}
+\newtheorem{example}{Example}
+
+\DeclareMathOperator{\rank}{rank}
+
+\title{Notes of "Basic Definitions and Examples"}
+\author{Jinxin Wang}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{Continuity of a Function at a Point}
+
+\begin{definition}[Continuity of a Function at a Point with Domain in a Neighborhood of the Point]
+  
+\end{definition}
+
+\begin{definition}[Continuity of a Function at a Point with General Domain]
+  \[
+    f:E \to \mathbb{R} \thickspace \textnormal{is continuous at} \thickspace a \in E := 
+    (\forall V(f(a))) \exists U_E(a) (f(U_E(a)) \subset V(f(a)))
+  \]
+\end{definition}
+\begin{remark}
+  Depending on the kind of point $x = a$ of the domain $E$:
+  \begin{itemize}
+    \item If $a$ is an isolated point of $E$, then there exists $U_E(a) = 
+    \lbrace a \rbrace$, and $\forall V(f(a))$, $f(U_E(a)) = \lbrace f(a) \rbrace 
+    \subset V(f(a))$. Therefore, $f$ is continuous at any isolated point of its 
+    domain $E$.
+    \item If $a$ is a limit point of $E$, then we have an equivalent definition 
+    of continuity at the point:
+    \begin{equation}
+      (f:E \to \mathbb{R} \thickspace \textnormal{is continuous at} \thickspace 
+      a \in E, \textnormal{where $a$ is a limit point of $E$}) \Leftrightarrow \lim_{E \owns x \to a} f(x) = f(a)
+    \end{equation}
+    \begin{proof}
+      (TODO)
+    \end{proof}
+  \end{itemize}
+\end{remark}
+\begin{remark}
+  Since we can rewrite
+  \begin{equation}
+    \lim_{E \owns x \to a} f(x) = f(a) = f(\lim_{E \owns x \to a} x)
+  \end{equation}
+  It leads to the conclusion that continuous functions and only the continuous 
+  ones can commute with the operation of passing to the limit at a point (只有连续函数可以与取极限交换运算顺序).
+\end{remark}
+
+\begin{remark}
+  By the Cauchy criterion we can give another equivalent definition of 
+  continuity at a point with the concept of the oscillation of a function at a 
+  point.
+  \begin{definition}[The Oscillation of a Function at a Point]
+    The oscillation of $f:E \to \mathbb{R}$ at $a$, denoted as $\omega(f;a)$, is defined as
+    \begin{equation}
+      \omega(f;a) = \lim_{\delta \to 0^+} \omega(f;U_E^\delta(a))
+    \end{equation}
+  \end{definition}
+  Then we have the following statement:
+  \[
+    (f:E \to \mathbb{R} \thickspace \textnormal{is continuous at} \thickspace a \in E) \Leftrightarrow
+    (\omega(f;a) = 0)
+  \]
+\end{remark}
+
+\begin{definition}[Continuity of a Function on a Set]
+  
+\end{definition}
+
+\section{Points of Discontinuity}
+
+\begin{definition}[Point of Discontinuity]
+  If the function $f: E \to \mathbb{R}$ is not continuous at a point of $E$, 
+  this point is called a point of discontinuity or simply a discontinuity of $f$.
+\end{definition}
+\begin{remark}
+  A point of discontinuity of a function must belong to the domain of the 
+  definition of the function. Continuity or discontinuity of a function at point 
+  is not discussed outside of the domain of the function.
+\end{remark}
+
+\begin{definition}[Removable Discontinuity]
+  If a point of discontinuity $a \in E$ of the function $f: E \to \mathbb{R}$ is 
+  such that there exists a continuous function $\tilde{f}: E \to \mathbb{R}$ 
+  such that $f|_{E \setminus a} = \tilde{f}|_{E \setminus a}$, then $a$ is 
+  called a removable discontinuity of the function $f$.
+\end{definition}
+
+\begin{example}
+  \[
+    f(x) = 
+    \begin{cases}
+      \sin(\frac{1}{x}), x \neq 0 \\
+      0, x = 0 \\
+    \end{cases}
+  \]
+\end{example}
+
+\begin{definition}[Discontinuity of First Kind]
+  The point $a \in E$ is called a discontinuity of first kind for the function 
+  $f: E \to \mathbb{R}$ if the following limits exist
+  \[
+    f(a + 0) := \lim_{E \owns x \to a+0} \thickspace \textnormal{or} \thickspace f(a-0) := \lim_{E \owns x \to a-0}
+  \]
+  but at least one of them is not equal to the value $f(a)$ that the function 
+  assumes at $a$.
+\end{definition}
+\begin{remark}
+  A removable discontinuity is a discontinuity of first kind.
+\end{remark}
+
+\begin{definition}[Discontinuity of Second Kind]
+  If $a \in E$ is a point of discontinuity of the function $f: E \to \mathbb{R}$
+  and at least one of the two limits
+  \[
+    f(a + 0) := \lim_{E \owns x \to a+0} \thickspace \textnormal{or} \thickspace f(a-0) := \lim_{E \owns x \to a-0}
+  \]
+  does not exist, then $a$ is called a discontinuity of second kind.
+\end{definition}
+
+\begin{example}[The Dirichlet Function]
+  \[
+    \mathcal{D}(x) = 
+    \begin{cases}
+      1, x \in \mathbb{Q} \\
+      0, x \in \mathbb{R} \setminus \mathbb{Q} \\
+    \end{cases}
+  \]
+\end{example}
+
+\begin{example}[The Riemann Function]
+  \[
+    \mathcal{R}(x) = 
+    \begin{cases}
+      \frac{1}{n}, \thickspace \textnormal{if} \thickspace x = \frac{m}{n} \in \mathbb{Q}, n \in \mathbb{N} \\
+      0, \thickspace \textnormal{if} \thickspace x \in \mathbb{R} \setminus \mathbb{Q} \\
+    \end{cases}
+  \]
+\end{example}
+
+\end{document}

@@ -1,0 +1,220 @@
+\documentclass[onecolumn]{ctexart}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{indentfirst}
+\usepackage{bm}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\geometry{a4paper,scale=0.8}
+
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{remark}{Remark}
+\newtheorem{example}{Example}
+
+\title{Notes of "Properties of Continuous Functions"}
+\author{Jinxin Wang}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{Local Properties}
+
+\begin{theorem}
+  \begin{description}
+    \item[T1] (局部有界性)
+    \item[T2] (局部保号性)
+    \item[T3] (四则运算保持连续性)
+    \item[T4] (复合函数保持连续性)
+  \end{description}
+\end{theorem}
+
+\section{Global Properties}
+
+\begin{theorem}[The Bolzano-Cauchy Intermediate-Value Theorem]
+  If a function is continuous on a closed interval, and assumes values with 
+  opposite signs on the endpoints of the interval, then the function has at 
+  least one zero point in the interval.
+
+  In logic expression:
+  \[
+    (f \in C[a, b]) \wedge (f(a) \cdot f(b) < 0) \Rightarrow \exists c \in (a, b) (f(c) = 0)
+  \]
+\end{theorem}
+\begin{proof}
+  Hint: Bisection method.
+\end{proof}
+\begin{proof}
+  Hint: The Lebesgue method.
+  \begin{itemize}
+    \item Let $A = \lbrace t \mid (a \leq t) \wedge (\forall x \in [a, t] 
+    (f(x) < 0)) \rbrace$
+    \item The set $A$ is not empty.
+    \item $b$ is an upper bound of $A$.
+    \item According to the least upper bound principle, there exists $s = \sup A \in [a, b]$.
+    \item $f(s) < 0$ is impossible othewise $s$ is not an upper bound of $A$. 
+    $f(s) > 0$ is impossible otherwise $s$ is not the least upper bound of $A$.
+    Therefore $f(s) = 0$.
+  \end{itemize}
+\end{proof}
+\begin{remark}[Connectivity of the domain]
+  
+\end{remark}
+
+\begin{corollary}
+  If the function $\phi$ is continuous on an open interval and assumes values 
+  $\phi(a) = A$ and $\phi(b) = B$ at points $a$ and $b$, then for any number $C$ 
+  between $A$ and $B$, there is a point $c$ between $a$ and $b$ at which 
+  $\phi(c) = C$.
+\end{corollary}
+\begin{proof}
+  
+\end{proof}
+
+\begin{theorem}[The Weierstrass Maximum-Value Theorem]
+  If a function is continuous on a closed interval, then it is bounded on the 
+  interval. The function assumes the maximum value and minimum value on the 
+  interval.
+\end{theorem}
+\begin{proof}
+  Hint: The finite covering lemma
+\end{proof}
+\begin{remark}[Compactness of the domain]
+  
+\end{remark}
+
+\subsection{Uniform continuity}
+
+\begin{definition}[Uniform continuity]
+  A function $f: E \to \mathbb{R}$ is uniformly continuous on a set $E \subset 
+  \mathbb{R}$ if for every $\epsilon > 0$ there exists $\delta > 0$ such that 
+  $|f(x_1) - f(x_2)| < \epsilon$ for all points $x_1, x_2 \in E$ such that $|x_1 
+  - x_2| < \delta$.
+
+  In logic expression:
+  \[
+    \begin{split}
+      &(f: E \to \mathbb{R} \thickspace \textnormal{is uniformly continuous} \thickspace) \coloneqq \\
+      &(\forall \epsilon > 0 \exists \delta > 0 \forall x_1 \in E \forall x_2 \in E (|x_1 - x_2| < \delta \Rightarrow |f(x_1) - f(x_2)| < \epsilon))
+    \end{split}
+  \]
+\end{definition}
+\begin{remark}
+  If a function is uniformly continuous on a set, then it is continuous on any 
+  points in the set.
+\end{remark}
+\begin{remark}
+  In general, a function is continuous on a set cannot derive that the function 
+  is uniformly continuous on the set.
+\end{remark}
+\begin{remark}[The definition of the negation of uniform continuity for a function in logic expression]
+  \[
+    \begin{split}
+      &(f: E \to \mathbb{R} \thickspace \textnormal{is not uniformly continuous} \thickspace) \coloneqq \\
+      &(\exists \epsilon > 0 \forall \delta > 0 \exists x_1 \in E \exists x_2 \in E (|x_1 - x_2| < \delta \wedge |f(x_1) - f(x_2)| \geq \epsilon))
+    \end{split}
+  \] 
+\end{remark}
+\begin{example}
+  $f(x) = \sin\frac{1}{x}$
+\end{example}
+\begin{remark}[The difference between continuity on a set and uniform continuity on a set]
+  In the definition of a function $f: E \to \mathbb{R}$ being continuous on $E$, 
+  the number $\delta$ depends on the number $\epsilon$ and the point $a$. Hence 
+  the number $\delta$ may vary on different points in $E$.
+
+  In the case of uniform continuity, we choose the number $\delta$ depending on 
+  only the number $\epsilon$, and it should work for every point in $E$. In 
+  other words, for every $\epsilon > 0$, there exists an greatest lower bound of 
+  the set of $\delta$ for a function $f: E \to \mathbb{R}$ to be continuous on 
+  each point $a \in E$.
+\end{remark}
+\begin{remark}[A sufficient condition of the negation of uniform continuity]
+  If the function $f: E \to \mathbb{R}$ is unbounded in every neighborhood of a 
+  fixed point $x_0 \in E$, then it is not uniformly continuous on $E$. If $E$ 
+  consists of open intervals, then $x_0$ can be an endpoint of $E$ since $x_0$ 
+  is a limit point of $E$ and every neighborhood $U(x_0)$ contains infinite 
+  points of $E$.
+\end{remark}
+\begin{remark}[Another sufficient and necessary condition of the negation of uniform continuity]
+  For a function $f: E \to \mathbb{R}$, if there exist a sequence $\lbrace x_n' 
+  \rbrace$ and $\lbrace x_n'' \rbrace$ such that $\lim_{n \to +\infty} (x_n' - 
+  x_n'') = 0$ but $(f(x_n') - f(x_n''))$ 不收敛于$0$.
+\end{remark}
+
+\begin{theorem}[The Contor-Heine theorem on uniform continuity]
+  A function that is continuous on a closed interval is uniformly continuous on 
+  that interval.
+\end{theorem}
+\begin{proof}
+  Hint
+\end{proof}
+
+\subsection{Monotonic continuous functions}
+
+\begin{proposition}
+  A continuous mapping $f:E \to \mathbb{R}$ of a closed interval 
+  $E = \lbrack a,b \rbrack$ into $\mathbb{R}$ is injective if and only if the 
+  function $f$ is strictly monotonic on $\lbrack a,b \rbrack$.
+\end{proposition}
+
+\begin{proposition}
+  Each strictly monotonic function $f:X \to \mathbb{R}$ defined on a numerical 
+  set $X \subset \mathbb{R}$ has an inverse $f^{-1}:Y \to \mathbb{R}$ defined on 
+  the set $Y = f(X)$ of values of $f$, and has the same kind of monotonicity on 
+  $Y$ that $f$ has on $X$.
+\end{proposition}
+
+\begin{proposition}
+  The discontinuities of a function $f:E \to \mathbb{R}$ that is monotonic on 
+  the set $E \subset \mathbb{R}$ can be only discontinuities of first kind.
+\end{proposition}
+
+\begin{corollary}
+  If $a$ is a point of discontinuity of a monotonic function $f:E \to \mathbb{R}$, 
+  then at least one of the limits $\lim_{E \owns x \to a^+} = f(a^+)$ or 
+  $\lim_{E \owns x \to a^-} = f(a^-)$ exists, and strict inequality holds in at 
+  least one of the inequalities $f(a^-) \leq f(a) \leq f(a^+)$ when $f$ is 
+  nondecreasing and $f(a^-) \geq f(a) \geq f(a^+)$ when $f$ is nonincreasing. 
+  The function assumes no values in the open interval defined by the strict 
+  inequality. Open intervals of this kind determined by different points of 
+  discontinuity have no points in common.
+\end{corollary}
+
+\begin{corollary}
+  The set of points of discontinuity of a monotonic function is at most 
+  countable.
+\end{corollary}
+
+\begin{proposition}[A Criterion for Continuity of a Monotonic Function]
+  A monotonic function $f:E \to \mathbb{R}$ defined on a closed interval 
+  $E = \lbrack a,b \rbrack$ is continuous if and only if its set of values 
+  $f(E)$ is the closed interval with endpoints $f(a)$ and $f(b)$.
+\end{proposition}
+
+\begin{theorem}[The Inverse Function Theorem]
+  A function $f:X \to \mathbb{R}$ that is strictly monotonic on a set $X \subset 
+  \mathbb{R}$ has an inverse $f^{-1}: Y \to \mathbb{R}$ defined on the set $Y = 
+  f(X)$ of values of $f$, and has the same kind of monotonicity on $Y$ that $f$ 
+  has on $X$.
+
+  If in addition $X$ is a closed interval $\lbrack a,b \rbrack$ and $f$ is 
+  continuous on $X$, then the set $Y = f(X)$ is the closed interval with 
+  endpoints $f(a)$ and $f(b)$ and the function $f^{-1}: Y \to \mathbb{R}$ is 
+  continuous on it.
+\end{theorem}
+
+\end{document}
