@@ -3,6 +3,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
+\usepackage{mathtools}
 \usepackage{geometry}
 \usepackage{graphicx}
 \usepackage{float}
@@ -49,7 +50,7 @@
   neighborhood $O(x_0, \delta_0)$.
 \end{remark}
 
-\begin{definition}[去心邻域]
+\begin{definition}[A deleted neighborhood of a point]
   A deleted neighborhood of a point is a neighborhood of the point from which 
   the point itself has been removed.
 \end{definition}
@@ -107,12 +108,12 @@
 \end{definition}
 
 \begin{theorem}
-  \begin{enumerate}
-    \item (Ultimate Constant has the Limit) $(f:E \to \mathbb{R}$ is ultimately the constant $A$ as $E 
+  \begin{description}
+    \item[$1^o$] (Ultimate Constant has the Limit) $(f:E \to \mathbb{R}$ is ultimately the constant $A$ as $E 
     \owns x \to a)$ $\Rightarrow$ $\lim_{E \owns x \to a} f(x) = A$
-    \item (Ultimately Boundness of the Limit) $(\exists \lim_{E \owns x \to a} f(x))$ $\Rightarrow$ $(f: E \to \mathbb{R}$ is ultimately bounded as $E \owns x \to a)$
-    \item (Uniqueness of the Limit) $(\lim_{E \owns x \to a} f(x) = A_1) \wedge (\lim_{E \owns x \to a} f(x) = A_2)$ $\Rightarrow$ $A_1 = A_2$
-  \end{enumerate}
+    \item[$2^o$] (Ultimately Boundness of the Limit) $(\exists \lim_{E \owns x \to a} f(x))$ $\Rightarrow$ $(f: E \to \mathbb{R}$ is ultimately bounded as $E \owns x \to a)$
+    \item[$3^o$] (Uniqueness of the Limit) $(\lim_{E \owns x \to a} f(x) = A_1) \wedge (\lim_{E \owns x \to a} f(x) = A_2)$ $\Rightarrow$ $A_1 = A_2$
+  \end{description}
 \end{theorem}
 \begin{proof}
   
@@ -163,13 +164,13 @@
     (\lim_{E \owns x \to a} f(x) = A) \Leftrightarrow (\lim_{E \owns x \to a} (f(x) - A) = 0)
   \end{equation}
 \end{remark}
-\subsection{Properties Involving Inequalities}
 
+\subsection{Properties Involving Inequalities}
 \begin{theorem}
-  \begin{itemize}
-    \item (局部保序性) If the functions $f: E \to \mathbb{R}$ and $g: E \to \mathbb{R}$ are such that 
-    \item (夹逼性)
-  \end{itemize}
+  \begin{description}
+    \item[$1^o$] (局部保序性) If the functions $f: E \to \mathbb{R}$ and $g: E \to \mathbb{R}$ are such that 
+    \item[$2^o$] (夹逼性)
+  \end{description}
 \end{theorem}
 
 \begin{corollary}[局部保号性]
